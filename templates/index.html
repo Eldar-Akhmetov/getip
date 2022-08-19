@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Akhmetov E.R.">
+    <title>
+        Get IP
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bootstrap.min.css') }}">
+    <meta name="theme-color" content="#712cf9">
+</head>
+
+<body class="bg-light">
+    <main class="container">
+        <div class="d-flex align-items-center p-5 my-3 text-dark bg-white rounded shadow-sm">
+            <img class="me-3" src="/static/img/logo.svg" alt="" width="150" height="100">
+            <div class="lh-1">
+                <h1 class="h2 mb-0 text-dark lh-1">Get IP</h1>
+                <small></small>
+            </div>
+        </div>
+
+        <div class="my-3 p-5 bg-body rounded shadow-sm">
+            <h6 class="border-bottom pb-3 mb-0 text-center">
+                Ваш IP адрес:
+            </h6>
+            <div class="my-3 p-3 bg-body text-center border-bottom">
+                <p class="pb-4 mb-0 lh-sm">
+                    IP: {{ ip }}
+                </p>
+            </div>
+            <div class="d-flex text-muted pt-5"></div>
+        </div>
+        <div class="d-flex text-muted pt-3"></div>
+        <div class="container">
+            <footer class="py-3 my-4">
+                <p class="text-center text-muted">&copy; 2022 Akhmetov E.R.</p>
+            </footer>
+        </div>
+
+    </main>
+</body>
+
+</html>
