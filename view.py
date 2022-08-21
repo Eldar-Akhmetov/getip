@@ -1,4 +1,4 @@
-from app import app
+from app import application
 from flask import render_template, request, jsonify
 from models import Computer
 from fileRead import FileRead
@@ -12,7 +12,7 @@ from datetime import datetime
 file = FileRead("data/files/allowed_ip.csv")
 
 # Функция выводит ip адрес клиента при get запросе на корневую страницу
-@app.route("/", methods=['GET'])
+@application.route("/", methods=['GET'])
 def index():
     # Если заголовок HTTP_X_FORWARDED_FOR пустой, значит мы не за прокси и выводим ip из заголовка REMOTE_ADDR
     if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
@@ -25,7 +25,7 @@ def index():
 # При получении post запроса на корневую страницу, соотносим ip клиента с массивом разрешенных ip адресов.
 # Если ip клиента нет в массиве разрешенных адресов, то записываем hostname, username и ip полученные из 
 # post запроса в базу данных
-@app.route("/", methods=['POST'])
+@application.route("/", methods=['POST'])
 def writeData():
     # Если заголовок HTTP_X_FORWARDED_FOR пустой, значит мы не за прокси и выводим ip из заголовка REMOTE_ADDR
     if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
