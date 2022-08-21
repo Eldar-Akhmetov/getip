@@ -4,3 +4,5 @@ instance/
 .webassets-cache
 
 **/vscode/
+
+config.py
