@@ -10,4 +10,7 @@ class Configuration(object):
     
     # Параметры для подключения к базе данных
     SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://user_db:password@server_db/name_db'
+    
+    
+    
    
