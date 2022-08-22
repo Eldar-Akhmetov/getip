@@ -10,5 +10,3 @@ application.config.from_object(Configuration)
 
 # Создаем объект нашей базы данных
 db = SQLAlchemy(application)
-
-
