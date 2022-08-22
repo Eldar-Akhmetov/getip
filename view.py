@@ -12,7 +12,7 @@ DB_Manager.init_db()
 # Создаем экземпляр класса FileRead, передаем путь до файла с разрешенными ip адресами
 file = FileRead("data/files/allowed_ip.csv")
 
-pattern = '(^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$)'
+pattern = '(^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'
 
 # Функция выводит ip адрес клиента при get запросе на корневую страницу
 @application.route("/", methods=['GET'])
@@ -22,8 +22,10 @@ def index():
         ipaddress = request.environ['REMOTE_ADDR']
     # В остальных случаях HTTP_X_FORWARDED_FOR не пустой, выводим ip адрес из него
     else:
-        ipaddress = re.match(pattern, request.environ['HTTP_X_FORWARDED_FOR']).group(0)
-       
+        try:
+            ipaddress = re.match(pattern, request.environ['HTTP_X_FORWARDED_FOR']).group(0)
+        except:
+            ipaddress = None
     return render_template('index.html', ip=ipaddress)
 
 # При получении post запроса на корневую страницу, соотносим ip клиента с массивом разрешенных ip адресов.
@@ -36,7 +38,10 @@ def writeData():
         ipaddress = request.environ['REMOTE_ADDR']
     # В остальных случаях HTTP_X_FORWARDED_FOR не пустой, выводим ip адрес из него
     else:
-        ipaddress = re.match(pattern, request.environ['HTTP_X_FORWARDED_FOR']).group(0)
+        try:
+            ipaddress = re.match(pattern, request.environ['HTTP_X_FORWARDED_FOR']).group(0)
+        except:
+            ipaddress = None
     # Если ip клиента нет в массиве разрешенных адресов, то записываем hostname, username и ip полученные из 
     # post запроса в базу данных
     if ipaddress not in file.data:
