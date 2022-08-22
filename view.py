@@ -7,7 +7,7 @@ from datetime import datetime
 import re
 
 # Создаем таблицы в базе данных, если они уже существуют, то не чего не произойдет 
-#DB_Manager.init_db()
+DB_Manager.init_db()
 
 # Создаем экземпляр класса FileRead, передаем путь до файла с разрешенными ip адресами
 file = FileRead("data/files/allowed_ip.csv")
