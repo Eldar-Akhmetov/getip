@@ -41,7 +41,7 @@ Group=nginx
 WorkingDirectory=/var/www/flask-projects/getip
 Environment="PATH=/var/www/flask-projects/getipvenv/bin"
 OOMScoreAdjust=-100
-ExecStart=/var/www/flask-projects/getipvenv/bin/gunicorn --workers 4 --bind unix:getip.sock -m 007 main:app
+ExecStart=/var/www/flask-projects/getipvenv/bin/gunicorn --workers 4 --bind unix:getip.sock -m 007 main:application
 
 [Install]
 WantedBy=multi-user.target
