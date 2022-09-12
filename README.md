@@ -108,6 +108,10 @@ id: {self.id}, hostname: {self.hostname}, username: {self.username}, ipaddress: 
 Метод __init_db__ выполняет метод create_all супер класса SQLAlchemy, создает таблицы и поля в базе данных.  
 Метод __writeData__ выполняет запись в базу данных.
 
+## Файл app.py
+В данном файле создаются экземпляры класса __Flask__ и __SQLAlchemy__.  
+Конфигурируем app, экземпляр класса Flask, передаем статический класс Configuration из файла [config.py](https://github.com/Eldar-Akhmetov/getip/blob/main/config.py). 
+
 ## Логика обработки HTTP запросов
 Логика обработки HTTP запросов описана в файле [view.py](https://github.com/Eldar-Akhmetov/getip-aws/blob/main/view.py)  
 #### Если на корневую страницу пришел Get запрос:
