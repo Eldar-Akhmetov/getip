@@ -1,4 +1,4 @@
-# getip-aws
+# getip
 
 
 
