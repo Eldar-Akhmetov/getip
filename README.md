@@ -21,7 +21,7 @@ WSGI сервер __Gunicorn__.
 ## Точка входа для WSGI.
 Файл для передачи WSGI [main](https://github.com/Eldar-Akhmetov/getip-aws/blob/main/main.py).  
 В настройках среды Python на AWS необходимо указать данный файл в строке __WSGI Path__  
-> **Примечание**  
+> **Note**  
 Для локального развертывания приложения необходимо установить WSGI, например __Gunicorn__.
 Простой вариант добавить зависимость в файл [requirements.txt](https://github.com/Eldar-Akhmetov/getip/blob/main/requirements.txt) для развертывания на локальном сервере или в виртуальной среде. Пример: gunicorn==20.1.0.  
 
